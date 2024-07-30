@@ -103,6 +103,15 @@ namespace LottiePlugin.UI
             }
             return _lottieAnimation;
         }
+        public void LoadAnimation(string animationJson, float playSpeed)
+        {
+            _lottieAnimation = LottieAnimation.LoadFromJsonData(
+                animationJson,
+                string.Empty,
+                _textureWidth,
+                _textureHeight);
+            _rawImage.texture = _lottieAnimation.Texture;
+        }
         internal void DisposeLottieAnimation()
         {
             if (_lottieAnimation != null)
